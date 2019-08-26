@@ -55,13 +55,14 @@ type Context<'a> = {
 type HttpContext = Context<HttpResponseMessage>
 
 module Context =
-    let private version =
+    let private version : Tuple<int, int, int> =
         let version = Assembly.GetExecutingAssembly().GetName().Version
-        {| Major=version.Major; Minor=version.Minor; Build=version.Build |}
+        (version.Major, version.Minor, version.Build)
 
     /// Default context to use.
     let internal defaultRequest =
-        let ua = sprintf "Oryx / v%d.%d.%d (Cognite)" version.Major version.Minor version.Build
+        let major, minor, build = version
+        let ua = sprintf "Oryx / v%d.%d.%d (Cognite)" major minor build
         {
             HttpClient = None
             Method = HttpMethod.Get

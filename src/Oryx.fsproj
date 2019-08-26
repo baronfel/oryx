@@ -1,7 +1,8 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Description>.NET SDK for writing web clients</Description>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net47</TargetFrameworks>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <PackageId>Oryx</PackageId>
     <Author>Cognite AS</Author>
@@ -9,7 +10,6 @@
     <Copyright>Cognite AS</Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
-
   <ItemGroup>
     <Compile Include="Async.fs" />
     <Compile Include="Error.fs" />
@@ -21,7 +21,7 @@
     <Compile Include="Encode.fs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\LICENSE" Pack="true" Visible="false" PackagePath=""/>
+    <None Include="../LICENSE" Pack="true" Visible="false" PackagePath="" />
   </ItemGroup>
   <Import Project="..\.paket\Paket.Restore.targets" />
 </Project>

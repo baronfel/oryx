@@ -6,10 +6,10 @@ open System
 
 open Microsoft.FSharp.Data.UnitSystems.SI
 
+[<Measure>] type ms
 
+[<AutoOpen>]
 module Retry =
-    [<Measure>] type ms
-
     let private secondsInMilliseconds = 1000<ms/UnitSymbols.s>  // relation between seconds and millisecond
 
     [<Literal>]
